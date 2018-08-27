@@ -28,6 +28,14 @@
 </head>
 <body>
 	<div class="container">
+		<div> ${pageContext.request.userPrincipal.name}
+			<div access="hasRole('ROLE_ADMIN')">
+				<c:if test="${pageContext.request.userPrincipal.name !=null }">
+					logged as:${pageContext.request.userPrincipal.name}
+					<a href="../logout">logout</a>
+				</c:if>
+			</div>
+		</div>
 		<div class="row">
 			<h1>Liste des Réservations</h1>
 		</div>
