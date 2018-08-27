@@ -19,6 +19,9 @@ import javax.persistence.Version;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.sopra.TPVolSpring.model.view.JsonViews;
+
 @Entity
 @Table(name="vol")
 public class Vol {
@@ -31,31 +34,38 @@ public class Vol {
 	@Column(name = "date_depart")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonView(JsonViews.Common.class)
 	private Date dateDepart;
 	@Column(name = "date_arrivee")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonView(JsonViews.Common.class)
 	private Date dateArrivee;
 	@Column(name = "heure_depart")
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern = "HH:mm")
+	@JsonView(JsonViews.Common.class)
 	private Date heureDepart;
 	@Column(name = "heure_arrivee")
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern = "HH:mm")
-	
+	@JsonView(JsonViews.Common.class)
 	private Date heureArrivee;
 	@ManyToOne
 	@JoinColumn(name = "arrivee_id")
+	@JsonView(JsonViews.Common.class)
 	private Aeroport arrivee;
 	@ManyToOne
 	@JoinColumn(name = "depart_id")
 	private Aeroport depart;
 	@OneToMany(mappedBy = "vol")
+	@JsonView(JsonViews.VolByIdWithReservations.class)
 	private Set<Reservation> reservations;
 	@OneToMany(mappedBy = "key.vol")
+	@JsonView(JsonViews.VolByIdWithEscales.class)
 	private Set<Escale> escales;
 	@OneToMany(mappedBy="key.vol")
+	@JsonView(JsonViews.VolByIdWithCompagnieAeriennes.class)
 	private Set<CompagnieAerienneVol> compagnieAeriennes;
 	@Version
 	private int version;

@@ -1,4 +1,4 @@
-<%@page import="com.sopra.TPVolBoot.model.CompagnieAerienne"%>
+<%@page import="com.sopra.TPVolSpring.model.CompagnieAerienne"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
