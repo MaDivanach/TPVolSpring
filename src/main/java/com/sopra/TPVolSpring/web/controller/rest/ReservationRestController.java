@@ -40,6 +40,19 @@ public class ReservationRestController {
 		return response;
 	}
 
+	@JsonView(JsonViews.ReservationsByClient.class)
+	@GetMapping(value = "/{client}")
+	public ResponseEntity<List<Reservation>> findByClient(@PathVariable(name = "client") Long idClient) {
+		ResponseEntity<List<Reservation>> response = null;
+		Optional<List<Reservation>> opt = reservationRepository.findAllCustomWithClient(idClient);
+		if (opt.isPresent()) {
+			response = new ResponseEntity<>(opt.get(), HttpStatus.OK);
+		} else {
+			response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return response;
+	}
+
 	@JsonView(JsonViews.ReservationByIdWithDetails.class)
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Reservation> findById(@PathVariable(name = "id") Long id) {
