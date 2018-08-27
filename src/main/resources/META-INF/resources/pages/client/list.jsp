@@ -52,7 +52,7 @@
 							test="${client.getClass().simpleName=='ClientMoral' }">		
 						${client.siret }
 					</c:if></td>
-					<td><a href="./reserv?id=${client.id_client}"
+					<td><a href="./reservations?id=${client.id_client}"
 						class="btn btn-success">Voir liste</a></td>
 					<td><a href="./delete?id=${client.id_client}"
 						class="btn btn-danger">supprimer</a></td>

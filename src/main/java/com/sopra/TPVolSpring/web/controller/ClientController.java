@@ -15,6 +15,7 @@ import com.sopra.TPVolSpring.model.Client;
 import com.sopra.TPVolSpring.model.ClientEl;
 import com.sopra.TPVolSpring.model.ClientMoral;
 import com.sopra.TPVolSpring.model.ClientPhysique;
+import com.sopra.TPVolSpring.model.Passager;
 import com.sopra.TPVolSpring.repositories.ClientRepository;
 
 @Controller
@@ -103,16 +104,15 @@ public class ClientController {
 	}
 	
 	
-//	@RequestMapping("/reserv")
-//	@JsonView(JsonViews.ClientByIdWithReservations.class)
-//    public String reservations(@RequestParam(name = "id") Long id, Model model) {
-//        Optional<Client> opt= clientRepository.findCustomByIdWithReservation(id);
-//        if (opt.isPresent()) {
-//            model.addAttribute("reservations", opt.get().getReservations());
-//            return "reserv";
-//        }
-//         return "redirect:/client/";
-//    }
+	@RequestMapping("/reservations")
+	public String reservations(@RequestParam(name = "id") Long id, Model model) {
+		Optional<Client> opt= clientRepository.findCustomByIdWithReservation(id);
+		if (opt.isPresent()) {
+			model.addAttribute("reservations", opt.get().getReservations());
+			return "reservation/list";
+		}
+		 return "redirect:/client/";
+	}
 	
 
 }
