@@ -1,5 +1,6 @@
 package com.sopra.TPVolSpring.web.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -81,6 +82,13 @@ public class ReservationController {
 			reservationRepository.save(reservation);
 			return new ModelAndView("redirect:/reservation/");
 		}
+	}
+	
+	@RequestMapping("/client") 
+	public ModelAndView list(@RequestParam(name = "reservations") List<Reservation> reservations){
+		ModelAndView mv = new ModelAndView("reservation/list");
+		mv.getModelMap().addAttribute("reservations", reservations);
+		return mv;
 	}
 
 	private ModelAndView goEdit(Reservation reservation) {
