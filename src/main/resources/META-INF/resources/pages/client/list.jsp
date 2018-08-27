@@ -14,15 +14,23 @@
 <body>
 	<div class="container">
 	<div>
+
 		<div access="hasRole('ROLE_ADMIN')">
 			<c:if test="${pageContext.request.userPrincipal.name !=null }">
                     logged as:${pageContext.request.userPrincipal.name}
                         <a href="../logout">logout</a>
 			</c:if>
 		</div>
+		
 	</div>
 
 		<table class="table">
+		<tr>
+		<th>
+			<a href="./menu"
+                        class="btn btn-primary">Menu</a>
+                        </th>
+                        </tr>
 			<tr>
 				<th>type</th>
 				<th>id</th>
@@ -67,9 +75,8 @@
 			Client Moral</a> <a href="./addel" class="btn btn-primary">ajout
 			Client El</a>
 
+</div>
 
 
-
-	</div>
 </body>
 </html>
