@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +34,15 @@
 			</div>
 		</div>
 	</header>
+	<div>
+		${pageContext.request.userPrincipal.name}
+		<div access="hasRole('ROLE_ADMIN')">
+			<c:if test="${pageContext.request.userPrincipal.name !=null }">
+                    logged as:${pageContext.request.userPrincipal.name}
+                        <a href="../logout">logout</a>
+			</c:if>
+		</div>
+	</div>
 	<div class="row">
 		<div class="card col-sm-6" style="width: 18rem;">
 			<div class="card-body">
@@ -39,6 +50,7 @@
 				<p class="card-text">Consultez la liste des clients enregistrés
 					dans notre base de données</p>
 				<a href="../pages/client/list.jsp" class="btn btn-primary">Ici</a>
+
 			</div>
 		</div>
 		<div class="card col-sm-6" style="width: 18rem;">
@@ -74,7 +86,8 @@
 				<h5 class="card-title">Compagnies Aériennes</h5>
 				<p class="card-text">Consultez la liste des compagnies aériennes
 					enregistrées dans nos base de données</p>
-				<a href="../pages/compagnieAerienne/list.jsp" class="btn btn-primary">Ici</a>
+				<a href="../pages/compagnieAerienne/list.jsp"
+					class="btn btn-primary">Ici</a>
 			</div>
 		</div>
 		<div class="card col-sm-6" style="width: 18rem;">
