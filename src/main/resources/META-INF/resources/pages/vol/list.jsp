@@ -27,6 +27,15 @@
 </head>
 <body>
 	<div class="container">
+		<div>
+			${pageContext.request.userPrincipal.name}
+			<div access="hasRole('ROLE_ADMIN')">
+				<c:if test="${pageContext.request.userPrincipal.name !=null }">
+                    logged as:${pageContext.request.userPrincipal.name}
+                        <a href="../logout">logout</a>
+				</c:if>
+			</div>
+		</div>
 		<header>
 			<div class="jumbotron jumbotron-fluid">
 				<div class="row">
@@ -67,9 +76,9 @@
 					<td>${vol.heureArrivee}</td>
 					<td>${vol.depart.nom}</td>
 					<td>${vol.arrivee.nom}</td>
-					<td><a href="./detail?id=${vol.id}" class="btn btn-info">Detail</a> </td>
-					<td><a href="./delete?id=${vol.id}"
-						class="btn btn-danger">Supprimer</a></td>
+					<td><a href="./detail?id=${vol.id}" class="btn btn-info">Detail</a>
+					</td>
+					<td><a href="./delete?id=${vol.id}" class="btn btn-danger">Supprimer</a></td>
 					<td><a href="./edit?id=${vol.id}" class="btn btn-primary">Editer</a></td>
 				</tr>
 			</c:forEach>
