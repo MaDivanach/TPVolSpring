@@ -3,15 +3,24 @@ package com.sopra.TPVolSpring.model;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.sopra.TPVolSpring.model.view.JsonViews;
+
+
+
 @Embeddable
 public class Adresse {
 	@Column(name = "numero")
+	@JsonView(JsonViews.Common.class)
 	private Integer numero;
 	@Column(name = "rue", length = 200)
+	@JsonView(JsonViews.Common.class)
 	private String rue;
 	@Column(name = "code_postal", length = 5)
+	@JsonView(JsonViews.Common.class)
 	private String codePostal;
 	@Column(name = "ville", length = 150)
+	@JsonView(JsonViews.Common.class)
 	private String ville;
 
 	public Adresse() {

@@ -18,7 +18,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonView;
+import com.sopra.TPVolSpring.model.view.JsonViews;
 
 @Entity
 @Table(name="client")
@@ -29,21 +31,26 @@ public abstract class Client {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
 	@SequenceGenerator(name = "seqClient", sequenceName = "seq_client", initialValue = 50, allocationSize = 1)
 	@Column(name = "id_client")
+	@JsonView(JsonViews.Common.class)
 	private Long id_client;
 	
 //	@Version
 //	private int version;
 	
 	@Column(name = "nom_client", length=60)
+	@JsonView(JsonViews.Common.class)
 	private String nom;
 	
 	@Column(name="tel_client",length=15)
+	@JsonView(JsonViews.Common.class)
 	private Integer numeroTel;
 		
 	@Column(name="fax_client",length=20)
+	@JsonView(JsonViews.Common.class)
 	private Integer numeroFax;
 	
 	@Column(name="email_client",length=50)
+	@JsonView(JsonViews.Common.class)
 	private String email;
 	
 	@Embedded
@@ -58,6 +65,7 @@ public abstract class Client {
 	private Login login;
     
     @OneToMany(mappedBy="client")
+	@JsonView(JsonViews.ClientByIdWithReservations.class)
     private Set<Reservation> reservations;
 
 	public Client(String typeClient,String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {

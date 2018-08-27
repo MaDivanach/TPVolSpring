@@ -4,11 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.sopra.TPVolSpring.model.view.JsonViews;
+
 @Entity
 @DiscriminatorValue("Physique")
 public class ClientPhysique extends Client {
 
 	@Column(name="prenom_client_physique")
+	@JsonView(JsonViews.Common.class)
 	private String prenom;
 
 	public ClientPhysique() {
