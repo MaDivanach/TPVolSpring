@@ -25,4 +25,8 @@ public class JsonViews {
 	public static class ClientByIdWithReservations extends Common{
 		
 	}
+	
+	public static class ReservationsByClient extends Common{
+		
+	}
 }
