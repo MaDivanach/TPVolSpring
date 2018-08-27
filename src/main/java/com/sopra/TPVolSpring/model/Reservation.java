@@ -25,26 +25,32 @@ public class Reservation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqReservation")
 	@Column(name = "id_reservation")
+	@JsonView(JsonViews.Common.class)
 	private Long id;
 	@Version
 	private int version;
 	@Column(name = "date")
+	@JsonView(JsonViews.Common.class)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date date;
 	@Column(name = "numero")
+	@JsonView(JsonViews.Common.class)
 	private Long numero;
 
 	@ManyToOne
 	@JoinColumn(name = "id_client")
+	@JsonView(JsonViews.ReservationByIdWithDetails.class)
 	private Client client;
 
 	@ManyToOne
 	@JoinColumn(name = "id_vol")
+	@JsonView(JsonViews.ReservationByIdWithDetails.class)
 	private Vol vol;
 
 	@ManyToOne
 	@JoinColumn(name = "id_passager")
+	@JsonView(JsonViews.ReservationByIdWithDetails.class)
 	private Passager passager;
 
 	public Reservation() {

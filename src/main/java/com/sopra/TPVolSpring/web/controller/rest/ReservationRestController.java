@@ -42,7 +42,7 @@ public class ReservationRestController {
 		return response;
 	}
 
-	@JsonView(JsonViews.ReservationWithDetails.class)
+	@JsonView(JsonViews.ReservationByIdWithDetails.class)
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Reservation> findById(@PathVariable(name = "id") Long id) {
 		ResponseEntity<Reservation> response = null;
@@ -71,7 +71,7 @@ public class ReservationRestController {
 	}
 
 	@PutMapping(path = { "/", "" })
-	@JsonView(JsonViews.ReservationWithDetails.class)
+	@JsonView(JsonViews.ReservationByIdWithDetails.class)
 	public ResponseEntity<Reservation> update(@Valid @RequestBody Reservation reservation, BindingResult br) {
 		ResponseEntity<Reservation> response = null;
 		if (br.hasErrors() || reservation.getId() == null) {
