@@ -104,13 +104,12 @@ public class ClientController {
 	
 	
 	@RequestMapping("/reservations")
-	public String reservations(@RequestParam(name = "id") Long id, Model model) {
+	public ModelAndView reservations(@RequestParam(name = "id") Long id) {
 		Optional<Client> opt= clientRepository.findCustomByIdWithReservation(id);
 		if (opt.isPresent()) {
-			model.addAttribute("reservations", opt.get().getReservations());
-			return "redirect:/reservation/client";
+			return new ModelAndView("redirect:/reservation/client","client", opt.get().getId());
 		}
-		 return "redirect:/client/";
+		 return new ModelAndView("redirect:/client/");
 	}
 	
 
