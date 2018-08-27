@@ -22,6 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.sopra.TPVolSpring.model.Passager;
+import com.sopra.TPVolSpring.model.view.JsonViews;
 import com.sopra.TPVolSpring.repositories.PassagerRepository;
 
 
