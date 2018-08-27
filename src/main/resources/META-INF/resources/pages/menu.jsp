@@ -58,7 +58,7 @@
 				<h5 class="card-title">Passagers</h5>
 				<p class="card-text">Consultez la liste des passagers
 					enregistrés dans notre base de données</p>
-				<a href="../pages/passager/list.jsp" class="btn btn-primary">Ici</a>
+				<a href="/passager" class="btn btn-primary">Ici</a>
 			</div>
 		</div>
 	</div>
