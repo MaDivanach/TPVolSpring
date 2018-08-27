@@ -77,10 +77,10 @@
 			</table>
 			<div access="hasRole('ROLE_USER')">
 				<c:if test="${client !=null }">
-					<a href="./add?client=${client}" class="btn btn-success">Ajouter une réservation</a>
+					<a href="./add?clientId=${client}" class="btn btn-success">Ajouter une réservation</a>
 				</c:if>
 			<div access="hasRole('ROLE_ADMIN')">
-				<a href="./add" class="btn btn-success">Ajouter une réservation</a> 
+				<a href="./addAdmin" class="btn btn-success">Ajouter une réservation</a> 
 			</div>
 			</div>
 		</div>
