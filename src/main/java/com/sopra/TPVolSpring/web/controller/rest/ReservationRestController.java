@@ -22,10 +22,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.sopra.TPVolSpring.model.Reservation;
-import com.sopra.TPVolSpring.repositories.ClientRepository;
-import com.sopra.TPVolSpring.repositories.PassagerRepository;
+import com.sopra.TPVolSpring.model.view.JsonViews;
 import com.sopra.TPVolSpring.repositories.ReservationRepository;
-import com.sopra.TPVolSpring.repositories.VolRepository;
 
 @RestController
 @RequestMapping("/rest/reservation")

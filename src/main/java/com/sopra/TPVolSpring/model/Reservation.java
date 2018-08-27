@@ -17,6 +17,9 @@ import javax.persistence.Version;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.sopra.TPVolSpring.model.view.JsonViews;
+
 @Entity
 @Table(name = "reservation")
 @SequenceGenerator(name = "seqReservation", sequenceName = "seq_reservation", initialValue = 100, allocationSize = 1)
