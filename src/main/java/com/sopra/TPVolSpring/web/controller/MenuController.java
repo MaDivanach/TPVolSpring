@@ -26,5 +26,21 @@ public class MenuController {
     public String passager() {
         return "redirect:/passager/";
     }
+	@RequestMapping("/vol")
+	public String vol() {
+		return "redirect:/vol/";
+	}
+	@RequestMapping("/reservation")
+	public String reservation() {
+		return "redirect:/reservation/";
+	}
+	@RequestMapping("/compagnieAerienne")
+	public String compagnieAerienne() {
+		return "redirect:/compagnieAerienne/";
+	}
+	@RequestMapping("/client")
+	public String client() {
+		return "redirect:/client/";
+	}
 
 }
