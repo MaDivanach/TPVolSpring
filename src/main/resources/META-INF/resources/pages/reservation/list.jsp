@@ -32,7 +32,6 @@
 			<c:if test="${pageContext.request.userPrincipal.name !=null }">
 				logged as:${pageContext.request.userPrincipal.name}
 				<a href="../logout">logout</a>
-				<a href="./add" class="btn btn-success">Ajouter une réservation</a> 
 			</c:if>
 		</div>
 		<div class="row">
@@ -76,9 +75,14 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<c:if test="${client !=null }">
-				<a href="./add?client=${client}" class="btn btn-success">Ajouter une réservation</a>
-			</c:if>
+			<div access="hasRole('ROLE_USER')">
+				<c:if test="${client !=null }">
+					<a href="./add?clientId=${client}" class="btn btn-success">Ajouter une réservation</a>
+				</c:if>
+			<div access="hasRole('ROLE_ADMIN')">
+				<a href="./addAdmin" class="btn btn-success">Ajouter une réservation</a> 
+			</div>
+			</div>
 		</div>
 </body>
 </html>
