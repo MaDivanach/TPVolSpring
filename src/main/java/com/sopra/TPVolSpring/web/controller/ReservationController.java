@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sopra.TPVolSpring.model.Client;
 import com.sopra.TPVolSpring.model.Reservation;
 import com.sopra.TPVolSpring.repositories.ClientRepository;
 import com.sopra.TPVolSpring.repositories.PassagerRepository;
@@ -51,10 +52,19 @@ public class ReservationController {
 	}
 
 	@RequestMapping("/add")
-	public ModelAndView add() {
+	public ModelAndView add(@RequestParam(name="clientId") Long clientId) {
+		Optional<Client> opt = clientRepository.findById(clientId);
+		if(opt.isPresent()) {
+			return goEdit(new Reservation(), opt.get());
+		}
+		return new ModelAndView("redirect:/reservation/");
+	}
+	
+	@RequestMapping("/addAdmin")
+	public ModelAndView addAdmin() {
 		return goEdit(new Reservation());
 	}
-
+	
 	@RequestMapping("/edit")
 	public ModelAndView update(@RequestParam(name = "id") Long id) {
 		Optional<Reservation> opt = reservationRepository.findById(id);
@@ -85,10 +95,10 @@ public class ReservationController {
 	}
 	
 	@RequestMapping("/client") 
-	public ModelAndView list(@RequestParam(name = "client") Long client){
+	public ModelAndView list(@RequestParam(name = "client") Long clientId){
 		ModelAndView mv = new ModelAndView("reservation/list");
-		Optional<List<Reservation>> opt = reservationRepository.findAllCustomWithClient(client);
-		mv.getModelMap().addAttribute("client", client);
+		Optional<List<Reservation>> opt = reservationRepository.findAllCustomWithClient(clientId);
+		mv.getModelMap().addAttribute("client", clientId);
 		if(opt.isPresent()) {
 			mv.getModelMap().addAttribute("reservations", opt.get());
 		}
@@ -99,6 +109,15 @@ public class ReservationController {
 		ModelAndView mv = new ModelAndView("reservation/edit");
 		mv.getModelMap().addAttribute("reservation", reservation);
 		mv.getModelMap().addAttribute("clients", clientRepository.findAll());
+		mv.getModelMap().addAttribute("vols", volRepository.findAll());
+		mv.getModelMap().addAttribute("passagers", passagerRepository.findAll());
+		return mv;
+	}
+	
+	private ModelAndView goEdit(Reservation reservation, Client client) {
+		ModelAndView mv = new ModelAndView("reservation/edit");
+		mv.getModelMap().addAttribute("reservation", reservation);
+		mv.getModelMap().addAttribute("clients", client);
 		mv.getModelMap().addAttribute("vols", volRepository.findAll());
 		mv.getModelMap().addAttribute("passagers", passagerRepository.findAll());
 		return mv;
