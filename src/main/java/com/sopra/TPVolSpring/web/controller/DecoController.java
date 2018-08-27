@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/menu")
-public class MenuController {
+@RequestMapping("/deconnexion")
+public class DecoController {
 
 	@RequestMapping(value = { "/" })
 	public String home(Model model) {
 
-		return "menu";
+		return "deconnexion";
 
 	}
 	
@@ -22,9 +22,9 @@ public class MenuController {
 //		return new ModelAndView("redirect:/passager");
 //
 //	}
-	@RequestMapping("/passager")
-    public String passager() {
-        return "redirect:/passager/";
-    }
+//	@RequestMapping("/passager")
+//    public String passager() {
+//        return "redirect:/passager/";
+//    }
 
 }
