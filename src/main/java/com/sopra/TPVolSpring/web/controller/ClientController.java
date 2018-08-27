@@ -112,5 +112,10 @@ public class ClientController {
 		 return new ModelAndView("redirect:/client/");
 	}
 	
+	@RequestMapping("/menu")    
+    public String menu() {
+        return "redirect:/menu/";
+    }
+	
 
 }
