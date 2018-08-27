@@ -11,7 +11,7 @@ import com.sopra.TPVolSpring.model.Reservation;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 	
-	@Query("select p from Passager p left join fetch p.reservations where p.id_client=:client")
+	@Query("select r from Reservation r left join fetch r.client c where c.id_client=:client")
 	Optional<List<Reservation>> findAllCustomWithClient(@Param("client") Long client);
 
 }
