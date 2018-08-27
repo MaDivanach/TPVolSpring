@@ -15,7 +15,6 @@ import com.sopra.TPVolSpring.model.Client;
 import com.sopra.TPVolSpring.model.ClientEl;
 import com.sopra.TPVolSpring.model.ClientMoral;
 import com.sopra.TPVolSpring.model.ClientPhysique;
-import com.sopra.TPVolSpring.model.Passager;
 import com.sopra.TPVolSpring.repositories.ClientRepository;
 
 @Controller
@@ -109,7 +108,7 @@ public class ClientController {
 		Optional<Client> opt= clientRepository.findCustomByIdWithReservation(id);
 		if (opt.isPresent()) {
 			model.addAttribute("reservations", opt.get().getReservations());
-			return "reservation/list";
+			return "redirect:/reservation/client";
 		}
 		 return "redirect:/client/";
 	}

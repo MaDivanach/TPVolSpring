@@ -14,7 +14,6 @@
 <body>
 	<div class="container">
 	<div>
-		${pageContext.request.userPrincipal.name}
 		<div access="hasRole('ROLE_ADMIN')">
 			<c:if test="${pageContext.request.userPrincipal.name !=null }">
                     logged as:${pageContext.request.userPrincipal.name}
@@ -28,9 +27,9 @@
 				<th>type</th>
 				<th>id</th>
 				<th>nom</th>
-				<th>telephone</th>
 				<th>prenom</th>
 				<th>siret</th>
+				<th>telephone</th>
 				<th>Reservation</th>
 				<th></th>
 				<th></th>
@@ -42,7 +41,6 @@
 					<td>${client.getClass().simpleName }</td>
 					<td>${client.id_client }</td>
 					<td>${client.nom }</td>
-					<td>${client.numeroTel }</td>
 
 					<td><c:if
 							test="${client.getClass().simpleName!='ClientMoral' }">		
@@ -52,6 +50,8 @@
 							test="${client.getClass().simpleName=='ClientMoral' }">		
 						${client.siret }
 					</c:if></td>
+					<td>${client.numeroTel }</td>
+					
 					<td><a href="./reservations?id=${client.id_client}"
 						class="btn btn-success">Voir liste</a></td>
 					<td><a href="./delete?id=${client.id_client}"
