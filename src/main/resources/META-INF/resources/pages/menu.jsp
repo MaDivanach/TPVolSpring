@@ -49,7 +49,7 @@
 				<h5 class="card-title">Clients</h5>
 				<p class="card-text">Consultez la liste des clients enregistrés
 					dans notre base de données</p>
-				<a href="../pages/client/list.jsp" class="btn btn-primary">Ici</a>
+				<a href="./client" class="btn btn-primary">Ici</a>
 
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 				<h5 class="card-title">Passagers</h5>
 				<p class="card-text">Consultez la liste des passagers
 					enregistrés dans notre base de données</p>
-				<a href="/passager" class="btn btn-primary">Ici</a>
+				<a href="./passager" class="btn btn-primary">Ici</a>
 			</div>
 		</div>
 	</div>
@@ -68,7 +68,7 @@
 				<h5 class="card-title">Vols</h5>
 				<p class="card-text">Consultez la liste des vols enregistrés
 					dans notre base de données</p>
-				<a href="../pages/vol/list.jsp" class="btn btn-primary">Ici</a>
+				<a href="./vol" class="btn btn-primary">Ici</a>
 			</div>
 		</div>
 		<div class="card col-sm-6" style="width: 18rem;">
@@ -76,7 +76,7 @@
 				<h5 class="card-title">Reservations</h5>
 				<p class="card-text">Consultez la liste des réservations
 					enregistrées dans notre base de données</p>
-				<a href="../pages/reservation/list.jsp" class="btn btn-primary">Ici</a>
+				<a href="./reservation" class="btn btn-primary">Ici</a>
 			</div>
 		</div>
 	</div>
@@ -86,7 +86,7 @@
 				<h5 class="card-title">Compagnies Aériennes</h5>
 				<p class="card-text">Consultez la liste des compagnies aériennes
 					enregistrées dans nos base de données</p>
-				<a href="../pages/compagnieAerienne/list.jsp"
+				<a href="./compagnieAerienne"
 					class="btn btn-primary">Ici</a>
 			</div>
 		</div>
