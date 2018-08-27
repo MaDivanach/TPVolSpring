@@ -3,7 +3,7 @@ package test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import repositories.ClientRepository;
+import com.sopra.TPVolSpring.repositories.ClientRepository;
 
 public class App {
 
