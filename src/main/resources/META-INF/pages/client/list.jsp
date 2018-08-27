@@ -12,7 +12,16 @@
 <title>Client</title>
 </head>
 <body>
-<div class="container">
+	<div class="container">
+	<div>
+		${pageContext.request.userPrincipal.name}
+		<div access="hasRole('ROLE_ADMIN')">
+			<c:if test="${pageContext.request.userPrincipal.name !=null }">
+                    logged as:${pageContext.request.userPrincipal.name}
+                        <a href="../logout">logout</a>
+			</c:if>
+		</div>
+	</div>
 
 		<table class="table">
 			<tr>
@@ -26,39 +35,40 @@
 				<th></th>
 				<th></th>
 			</tr>
-			
-			
+
+
 			<c:forEach items="${clients}" var="client">
 				<tr>
 					<td>${client.getClass().simpleName }</td>
 					<td>${client.id_client }</td>
 					<td>${client.nom }</td>
 					<td>${client.numeroTel }</td>
-					
-					<td>
-					<c:if test="${client.getClass().simpleName!='ClientMoral' }">		
+
+					<td><c:if
+							test="${client.getClass().simpleName!='ClientMoral' }">		
 						${client.prenom }
-					</c:if>
-					</td>
-					<td>
-					<c:if test="${client.getClass().simpleName=='ClientMoral' }">		
+					</c:if></td>
+					<td><c:if
+							test="${client.getClass().simpleName=='ClientMoral' }">		
 						${client.siret }
-					</c:if>
-					</td>
-					<td><a href="./reserv?id=${client.id_client}" class="btn btn-success">Voir liste</a></td>
-					<td><a href="./delete?id=${client.id_client}" class="btn btn-danger">supprimer</a></td>
+					</c:if></td>
+					<td><a href="./reserv?id=${client.id_client}"
+						class="btn btn-success">Voir liste</a></td>
+					<td><a href="./delete?id=${client.id_client}"
+						class="btn btn-danger">supprimer</a></td>
 					<td><a href="./edit?id=${client.id_client}"
 						class="btn btn-primary">edition</a></td>
 				</tr>
 			</c:forEach>
 
 		</table>
-		<a href="./addphysique" class="btn btn-primary">ajout Client Physique</a>
-		<a href="./addmoral" class="btn btn-primary">ajout Client Moral</a>
-		<a href="./addel" class="btn btn-primary">ajout Client El</a>
-		
-		
-	
+		<a href="./addphysique" class="btn btn-primary">ajout Client
+			Physique</a> <a href="./addmoral" class="btn btn-primary">ajout
+			Client Moral</a> <a href="./addel" class="btn btn-primary">ajout
+			Client El</a>
+
+
+
 
 	</div>
 </body>

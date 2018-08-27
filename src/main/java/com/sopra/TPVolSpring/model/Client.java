@@ -65,7 +65,7 @@ public abstract class Client {
 	private Login login;
     
     @OneToMany(mappedBy="client")
-//	@JsonView(JsonViews.ClientByIdWithReservations.class);
+	@JsonView(JsonViews.ClientByIdWithReservations.class)
     private Set<Reservation> reservations;
 
 	public Client(String typeClient,String nom, Integer numeroTel, Integer numeroFax, String email, Adresse adresse) {
