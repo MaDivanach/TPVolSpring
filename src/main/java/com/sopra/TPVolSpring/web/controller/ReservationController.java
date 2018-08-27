@@ -88,6 +88,7 @@ public class ReservationController {
 	public ModelAndView list(@RequestParam(name = "client") Long client){
 		ModelAndView mv = new ModelAndView("reservation/list");
 		Optional<List<Reservation>> opt = reservationRepository.findAllCustomWithClient(client);
+		mv.getModelMap().addAttribute("client", client);
 		if(opt.isPresent()) {
 			mv.getModelMap().addAttribute("reservations", opt.get());
 		}
