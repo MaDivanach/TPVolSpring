@@ -39,17 +39,17 @@ public class VolRestController {
 	}
 
 	@JsonView(JsonViews.VolByIdWithReservations.class)
-	@GetMapping(path = { "/vol" })
+	@GetMapping(path = { "/volwithreservation" })
 	public ResponseEntity<Optional<Vol>> findByIdWithReservation(Long id) {
 		return new ResponseEntity<>(volRepository.findCustomByIdWithReservation(id), HttpStatus.OK);
 	}
 	@JsonView(JsonViews.VolByIdWithCompagnieAeriennes.class)
-	@GetMapping(path = { "/vol" })
+	@GetMapping(path = { "/volwithcompagnie" })
 	public ResponseEntity<Optional<Vol>> findByIdWithCompagnieAerienne(Long id) {
 		return new ResponseEntity<>(volRepository.findCustomByIdWithCompagnieAerienne(id), HttpStatus.OK);
 	}
 	@JsonView(JsonViews.VolByIdWithEscales.class)
-	@GetMapping(path = { "/vol" })
+	@GetMapping(path = { "/volwithescale" })
 	public ResponseEntity<Optional<Vol>> findByIdWithEscale(Long id) {
 		return new ResponseEntity<>(volRepository.findCustomByIdWithEscale(id), HttpStatus.OK);
 	}
