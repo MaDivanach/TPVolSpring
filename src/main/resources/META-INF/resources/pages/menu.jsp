@@ -38,8 +38,8 @@
 		${pageContext.request.userPrincipal.name}
 		<div access="hasRole('ROLE_ADMIN')">
 			<c:if test="${pageContext.request.userPrincipal.name !=null }">
-                    logged as:${pageContext.request.userPrincipal.name}
-                        <a href="../logout">logout</a>
+                    Logged as: ${pageContext.request.userPrincipal.name}
+                        <a href="../logout">Logout</a>
 			</c:if>
 		</div>
 	</div>
@@ -104,9 +104,7 @@
 </body>
 <footer>
 	<div class=row>
-		<div class=col-sm-4>© Copyright BestAjcGroupEver</div>
-		<div class=col-sm-6></div>
-		<div class=col-sm-2>2018</div>
+		<div class=col-sm-4>© Copyright BestAjcGroupEver 2018</div>
 	</div>
 </footer>
 </html>
